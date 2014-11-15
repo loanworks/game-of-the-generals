@@ -1,2 +1,2 @@
-games-of-generals
+game of the generals 
 =================

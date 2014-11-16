@@ -7,8 +7,11 @@
     	<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css' />
      <style>
           .wrapper-body{
-               margin: 0 auto;
-               width: 960px;
+              margin: 0 auto;
+              width: 960px;               
+          }
+          .content-body{
+              min-height: 300px;
           }
      </style>
   	</head>
@@ -16,3 +19,20 @@
           <div class=wrapper>
      	    	<div class=wrapper-body>          
                     <div class=header><img src="/images/header1.png"/></div>
+                    <nav class="navbar navbar-default" role="navigation">
+                         <div class="container-fluid">
+                         <!-- Brand and toggle get grouped for better mobile display -->
+                              <div class="navbar-header">
+                                   <a class="navbar-brand" href="/">Home</a>                                   
+                              </div>
+                              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                   <ul class="nav navbar-nav">
+                                        <li><a href="/lobby">Lobby</a></li>  
+                                        <li></li>                                          
+                                   </ul>
+                                   <% if(typeof username != "undefined" && username != ""){ %>
+                                   <p class="navbar-text navbar-right">Welcome <b><%= username %></b> <a href="/login/logout">Logout</a></p>
+                                   <% } %>
+                              </div> 
+                         </div>
+                    </nav>

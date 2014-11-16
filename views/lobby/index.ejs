@@ -1,0 +1,38 @@
+<%- include ../templates/header.ejs %>    
+<div class='content-body'>
+    <div class='content-container'>
+    	<div class='container-fluid'>
+    		<style>
+    			#lobby-chat-box, #lobby-chat-input,#lobby-chat-users{
+    				width: 100%;
+    			}	
+    		</style>
+    		<div class='row'>
+    			<div class='col-md-8'>
+    				<textarea id='lobby-chat-box' rows='13' readonly></textarea>
+    			</div>
+    			<div class='col-md-4'>
+    				<textarea id='lobby-chat-users' rows='13' readonly></textarea>
+    			</div>
+    		</div>		
+    		<div class='row'>
+    			<div class='col-md-8'>
+    				<input id='lobby-chat-input' type='text' placeholder='Enter your chat here'/>
+    			</div>
+    		</div>
+            <script src="http://192.168.254.111:4000/socket.io/socket.io.js"></script>
+            <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+            <script>
+                var socket = io.connect('http://192.168.254.111:4000/lobby');
+                var client_id;
+                socket.on('connect',function(){
+                    console.log('is connected');
+                    socket.emit('register',{username:"<?php echo $this->session_user->username; ?>"},function(data){
+                        client_id = data;
+                    });
+                });    
+            </script>	
+    	</div>
+    </div>
+</div>
+<%- include ../templates/footer.ejs %>    

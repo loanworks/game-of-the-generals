@@ -1,47 +1,31 @@
 var express = require('express');
 var path = require('path');
 //var favicon = require('serve-favicon');
-var cookieParser = require('cookie-parser');
+//var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session = require('express-session')
+var session = require('express-session');
+var cors = require('cors');
+
+var app = express();
 
 var routes_index = require('./routes/index');
 var routes_lobby = require('./routes/lobby');
 var routes_login = require('./routes/login');
-
-var app = express();
-var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-}
-app.use(allowCrossDomain);
+app.use(cors());
 
 //console.log(app.get('port'));
 //process.kill(process.pid, 'SIGHUP');
-/*app.set('port', process.env.PORT || 4000);
-var server = app.listen(app.get('port'), function() {
-  console.log('Express server listening on port ' + server.address().port);
-});*/
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
-//app.use(logger('dev'));
-//app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(session({
     secret:"1234567890",
     resave: true,
     saveUninitialized: true
 }));
+
 
 app.use('/', routes_index);
 app.use('/lobby', routes_lobby);

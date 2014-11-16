@@ -1,96 +1,26 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/home/paulon/.nvm/v0.11.14/bin/node',
 1 verbose cli   '/home/paulon/.nvm/v0.11.14/bin/npm',
-1 verbose cli   'install',
-1 verbose cli   'cookie-session--save' ]
+1 verbose cli   'isntall',
+1 verbose cli   'cors',
+1 verbose cli   '--save' ]
 2 info using npm@2.0.0
 3 info using node@v0.11.14
-4 verbose readDependencies using package.json deps
-5 verbose cache add [ 'cookie-session--save', null ]
-6 verbose cache add spec="cookie-session--save" args=["cookie-session--save",null]
-7 verbose parsed spec { raw: 'cookie-session--save',
-7 verbose parsed spec   scope: null,
-7 verbose parsed spec   name: 'cookie-session--save',
-7 verbose parsed spec   rawSpec: '',
-7 verbose parsed spec   spec: '*',
-7 verbose parsed spec   type: 'range' }
-8 verbose parsed spec { raw: 'cookie-session--save',
-8 verbose parsed spec   scope: null,
-8 verbose parsed spec   name: 'cookie-session--save',
-8 verbose parsed spec   rawSpec: '',
-8 verbose parsed spec   spec: '*',
-8 verbose parsed spec   type: 'range' }
-9 verbose addNamed [ 'cookie-session--save', '*' ]
-10 verbose addNamed [ null, '*' ]
-11 silly lockFile 8844498e-cookie-session-save cookie-session--save@*
-12 verbose lock cookie-session--save@* /home/paulon/.npm/8844498e-cookie-session-save.lock
-13 silly addNameRange { name: 'cookie-session--save', range: '*', hasData: false }
-14 verbose mapToRegistry name cookie-session--save
-15 verbose mapToRegistry uri https://registry.npmjs.org/cookie-session--save
-16 verbose request on initialization, where is /cookie-session--save
-17 verbose request after pass 1, where is /cookie-session--save
-18 verbose request url raw /cookie-session--save
-19 verbose request resolving registry [ 'https://registry.npmjs.org/', './cookie-session--save' ]
-20 verbose request after pass 2, where is https://registry.npmjs.org/cookie-session--save
-21 verbose request no auth needed
-22 info attempt registry request try #1 at 22:45:33
-23 verbose request id 439829a43b5e29b5
-24 http request GET https://registry.npmjs.org/cookie-session--save
-25 http 404 https://registry.npmjs.org/cookie-session--save
-26 verbose headers { date: 'Sat, 15 Nov 2014 14:45:41 GMT',
-26 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-26 verbose headers   'content-type': 'application/json',
-26 verbose headers   'cache-control': 'max-age=0',
-26 verbose headers   'content-length': '52',
-26 verbose headers   'accept-ranges': 'bytes',
-26 verbose headers   via: '1.1 varnish',
-26 verbose headers   age: '0',
-26 verbose headers   'x-served-by': 'cache-hk90-HKG',
-26 verbose headers   'x-cache': 'MISS',
-26 verbose headers   'x-cache-hits': '0',
-26 verbose headers   'x-timer': 'S1416062740.440469,VS0,VE768',
-26 verbose headers   connection: 'close' }
-27 silly registry.get cb [ 404,
-27 silly registry.get   { date: 'Sat, 15 Nov 2014 14:45:41 GMT',
-27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-27 silly registry.get     'content-type': 'application/json',
-27 silly registry.get     'cache-control': 'max-age=0',
-27 silly registry.get     'content-length': '52',
-27 silly registry.get     'accept-ranges': 'bytes',
-27 silly registry.get     via: '1.1 varnish',
-27 silly registry.get     age: '0',
-27 silly registry.get     'x-served-by': 'cache-hk90-HKG',
-27 silly registry.get     'x-cache': 'MISS',
-27 silly registry.get     'x-cache-hits': '0',
-27 silly registry.get     'x-timer': 'S1416062740.440469,VS0,VE768',
-27 silly registry.get     connection: 'close' } ]
-28 silly lockFile 8844498e-cookie-session-save cookie-session--save@*
-29 silly lockFile 8844498e-cookie-session-save cookie-session--save@*
-30 verbose stack Error: 404 Not Found: cookie-session--save
-30 verbose stack     at RegClient.<anonymous> (/home/paulon/.nvm/v0.11.14/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:259:14)
-30 verbose stack     at Request._callback (/home/paulon/.nvm/v0.11.14/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:198:65)
-30 verbose stack     at Request.self.callback (/home/paulon/.nvm/v0.11.14/lib/node_modules/npm/node_modules/request/request.js:236:22)
-30 verbose stack     at Request.emit (events.js:110:17)
-30 verbose stack     at Request.<anonymous> (/home/paulon/.nvm/v0.11.14/lib/node_modules/npm/node_modules/request/request.js:1142:14)
-30 verbose stack     at Request.emit (events.js:129:20)
-30 verbose stack     at IncomingMessage.<anonymous> (/home/paulon/.nvm/v0.11.14/lib/node_modules/npm/node_modules/request/request.js:1096:12)
-30 verbose stack     at IncomingMessage.emit (events.js:129:20)
-30 verbose stack     at _stream_readable.js:907:16
-30 verbose stack     at process._tickCallback (node.js:372:11)
-31 verbose statusCode 404
-32 verbose pkgid cookie-session--save
-33 verbose cwd /home/paulon/Desktop/game-of-generals
-34 error Linux 3.13.0-32-generic
-35 error argv "/home/paulon/.nvm/v0.11.14/bin/node" "/home/paulon/.nvm/v0.11.14/bin/npm" "install" "cookie-session--save"
-36 error node v0.11.14
-37 error npm  v2.0.0
-38 error code E404
-39 error 404 Not Found: cookie-session--save
-39 error 404
-39 error 404 'cookie-session--save' is not in the npm registry.
-39 error 404 You should bug the author to publish it (or use the name yourself!)
-39 error 404 It was specified as a dependency of 'game-of-generals'
-39 error 404
-39 error 404 Note that you can also install from a
-39 error 404 tarball, folder, http url, or git url.
-40 verbose exit [ 1, true ]
+4 verbose stack Error: Cannot find module '/home/paulon/.nvm/v0.11.14/lib/node_modules/npm/lib/isntall.js'
+4 verbose stack     at Function.Module._resolveFilename (module.js:336:15)
+4 verbose stack     at Function.Module._load (module.js:278:25)
+4 verbose stack     at Module.require (module.js:365:17)
+4 verbose stack     at require (module.js:384:17)
+4 verbose stack     at Object.defineProperty.get (/home/paulon/.nvm/v0.11.14/lib/node_modules/npm/lib/npm.js:188:15)
+4 verbose stack     at EventEmitter.<anonymous> (/home/paulon/.nvm/v0.11.14/lib/node_modules/npm/bin/npm-cli.js:73:15)
+4 verbose stack     at process._tickCallback (node.js:372:11)
+5 verbose cwd /home/paulon/Desktop/game-of-generals
+6 error Linux 3.13.0-32-generic
+7 error argv "/home/paulon/.nvm/v0.11.14/bin/node" "/home/paulon/.nvm/v0.11.14/bin/npm" "isntall" "cors" "--save"
+8 error node v0.11.14
+9 error npm  v2.0.0
+10 error code MODULE_NOT_FOUND
+11 error Cannot find module '/home/paulon/.nvm/v0.11.14/lib/node_modules/npm/lib/isntall.js'
+12 error If you need help, you may report this error at:
+12 error     <http://github.com/npm/npm/issues>
+13 verbose exit [ 1, true ]

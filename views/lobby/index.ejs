@@ -20,16 +20,13 @@
     				<input id='lobby-chat-input' type='text' placeholder='Enter your chat here'/>
     			</div>
     		</div>
-            <script src="http://192.168.254.111:4000/socket.io/socket.io.js"></script>
+            <script src="http://localhost:4000/socket.io/socket.io.js"></script>
             <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
             <script>
-                var socket = io.connect('http://192.168.254.111:4000/lobby');
+                var socket = io.connect('http://localhost:4000/');
                 var client_id;
                 socket.on('connect',function(){
-                    console.log('is connected');
-                    socket.emit('register',{username:"<?php echo $this->session_user->username; ?>"},function(data){
-                        client_id = data;
-                    });
+                    console.log('is connected');                    
                 });    
             </script>	
     	</div>

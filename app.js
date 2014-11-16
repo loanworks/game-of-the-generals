@@ -4,14 +4,14 @@ var path = require('path');
 //var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var cors = require('cors');
+//var cors = require('cors');
 
 var app = express();
 
 var routes_index = require('./routes/index');
 var routes_lobby = require('./routes/lobby');
 var routes_login = require('./routes/login');
-app.use(cors());
+//app.use(cors());
 
 //console.log(app.get('port'));
 //process.kill(process.pid, 'SIGHUP');

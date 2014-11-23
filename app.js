@@ -1,20 +1,15 @@
-var express = require('express');
-var path = require('path');
-//var favicon = require('serve-favicon');
-//var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session');
-//var cors = require('cors');
-
-var app = express();
-
-var routes_index = require('./routes/index');
-var routes_lobby = require('./routes/lobby');
-var routes_login = require('./routes/login');
-//app.use(cors());
+var express = require('express'),
+    path = require('path'),
+    bodyParser = require('body-parser'),
+    session = require('express-session'),
+    app = express(),
+    routes_index = require('./routes/index'),
+    routes_lobby = require('./routes/lobby'),
+    routes_login = require('./routes/login');
 
 //console.log(app.get('port'));
 //process.kill(process.pid, 'SIGHUP');
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -25,15 +20,9 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-app.use(function(req, res, next) {   
-    res.set('Access-Control-Allow-Origin', '*');    
-    next();
-});
-
 app.use('/', routes_index);
 app.use('/lobby', routes_lobby);
 app.use('/login', routes_login);
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
@@ -41,8 +30,8 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-// error handlers
 
+// error handlers
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {

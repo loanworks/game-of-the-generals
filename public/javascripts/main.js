@@ -1,32 +1,51 @@
- 
- (function(){
+ (function(){   
      _.templateSettings = {
           interpolate: /\{\{(.+?)\}\}/g
      };     
-     var userModel = Backbone.Model.extend({
-          Default:function(){
-               return {
-                    username:"",
-                    email:""
+     var userModel = Backbone.Model.extend({          
+          urlRoot: "http://generals.vm:3000/api/get-user-info",
+          defaults:function(){
+               return {            
+                    username:"test",
+                    email:"test"            
                };
           }
      });
-     var v_username = '<%= username %>';
-     console.log(v_username);
-     var socket = io.connect('http://192.168.254.107:4000/lobby');
-     //var client_id;
+     /*var userCollection = Backbone.Collection.extend({
+          model:userModel,
+          url:'http://generals.vm:3000/api/get-user-info'
+     });
+     var user = new userCollection();*/
+     var user = new userModel();
+     //user.fetch();
+     //var userAttr = user.attributes;
+     //console.log(userAttr);
+
+     var socket = io.connect('http://192.168.254.107:4000/lobby');     
      socket.on('connect',function(){
-          socket.emit('join',{user:'<%= username %>'},function(data){                              
-        
-               //var user = new userModel({username:'{{username}}',email:"{{username}}"});
-               //console.log(user.get('username'));
-          });  
-          socket.emit('request users list',function(data){  
-               //console.log(data); 
+          user.fetch({
+               success:function(){
+                    socket.emit('join',{user:user.get('username')},function(data){                              
+                         if(data.success){
+                              //$("textarea[id=lobby-chat-users]").append(userAttr.username + "\r");
+                         }
+                    });       
+               }
+          });
+          
+          socket.on('update users list',function(data){
+               console.log(data);
+               $("textarea[id=lobby-chat-users]").html();
                for(var a=0; a<data.length; a++){
                     $("textarea[id=lobby-chat-users]").append(data[a] + "\r");
                }
-          });                  
-     });         
+          });
+          //socket.emit('request users list',function(data){                 
+          //     for(var a=0; a<data.length; a++){
+          //          $("textarea[id=lobby-chat-users]").append(data[a] + "\r");
+          //     }
+          //});    
+     });            
+          
      
-})(jQuery);       
+});       

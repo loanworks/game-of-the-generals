@@ -5,8 +5,9 @@ var express = require('express'),
     app = express(),
     routes_index = require('./routes/index'),
     routes_lobby = require('./routes/lobby'),
-    routes_login = require('./routes/login');
-    routes_frontend_scripts = require('./routes/frontend-scripts');
+    routes_login = require('./routes/login'),
+    routes_api = require('./routes/api');
+    //routes_frontend_scripts = require('./routes/frontend-scripts');
 
 //console.log(app.get('port'));
 //process.kill(process.pid, 'SIGHUP');
@@ -24,7 +25,10 @@ app.use(session({
 app.use('/', routes_index);
 app.use('/lobby', routes_lobby);
 app.use('/login', routes_login);
-app.use(routes_frontend_scripts);
+app.use('/api', routes_api);
+
+//app.use(routes_frontend_scripts);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

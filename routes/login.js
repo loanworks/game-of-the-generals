@@ -9,7 +9,16 @@ router.post('/auth', authenticateUser, function(req, res){
 	res.redirect('/lobby'); 
 });
 router.get('/logout',function(req,res){
+	var redis = require("redis"),
+    	client = redis.createClient(6379,'192.168.254.112');
+    
+    client.auth("angpoginggwapongpaulon");
+    client.srem('users',req.session.user.username);
+	client.del('user:'+req.session.user.username,JSON.stringify({email:req.session.user.email}));
+	client.quit();
+
 	req.session.destroy();
+
 	res.redirect('/login');
 });
 

@@ -4,9 +4,9 @@ var router = express.Router();
 router.get('/', restrict, function(req, res) {
 	// store session to redis
 	var redis = require("redis"),
-    	client = redis.createClient(6379,'192.168.254.112');
+    	client = redis.createClient(6379,'127.0.0.1');
     
-    client.auth("angpoginggwapongpaulon");
+    //client.auth("angpoginggwapongpaulon");
     client.sadd('users',req.session.user.username);
 	client.set('user:'+req.session.user.username,JSON.stringify({email:req.session.user.email}));
 	client.quit();

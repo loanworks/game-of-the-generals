@@ -3,9 +3,18 @@
   	<head>
   		<meta name="viewport" content="width=device-width, initial-scale=1">
     	<title><%= title %></title>
-    	<!--link rel='stylesheet' href='/stylesheets/style.css' /-->
-      <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-    	<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css' />
+        
+     <script src="/javascripts/vendor/jquery-1.11.1.js"></script>    	
+    	<script src="/javascripts/vendor/underscore.js"></script>          
+     <script src="/javascripts/vendor/backbone.js"></script>  
+     <script src="http://192.168.254.107:4000/socket.io/socket.io.js"></script>     
+
+     <script src="/javascripts/model/users-info.js"></script>
+     <script src="/javascripts/view/menunavigator.js"></script>
+     <script src="/javascripts/view/home.js"></script>
+     <script src="/javascripts/app.js"></script>
+
+     <link rel='stylesheet' href='/stylesheets/bootstrap.css' /> 
      <style>
           .wrapper-body{
               margin: 0 auto;
@@ -14,7 +23,7 @@
           .content-body{
               min-height: 300px;
           }
-     </style>
+     </style>             
   	</head>
   	<body>	    
           <div class=wrapper>
@@ -22,18 +31,14 @@
                     <div class=header><img src="/images/header1.png"/></div>
                     <nav class="navbar navbar-default" role="navigation">
                          <div class="container-fluid">
-                         <!-- Brand and toggle get grouped for better mobile display -->
-                              <div class="navbar-header">
-                                   <a class="navbar-brand" href="/">Home</a>                                   
-                              </div>
-                              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                   <ul class="nav navbar-nav">
-                                        <li><a href="/lobby">Lobby</a></li>  
-                                        <li></li>                                          
-                                   </ul>
-                                   <% if(typeof username != "undefined" && username != ""){ %>
-                                   <p class="navbar-text navbar-right">Welcome <b><%= username %></b> <a href="/login/logout">Logout</a></p>
-                                   <% } %>
-                              </div> 
+                         <!-- Brand and toggle get grouped for better mobile display -->                              
+                              <div id="menu-navigation"></div>
+                              <div class='navbar-header'><a class='navbar-brand' href='/'>Home</a></div>
+                              <div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
+                                   <ul class='nav navbar-nav'>
+                                        <li><a href='/lobby'>Lobby</a></li>
+                                   </ul>       
+                                   <p class='navbar-text navbar-right' id='userinfo-and-logout'></p>
+                              </div>     
                          </div>
                     </nav>
